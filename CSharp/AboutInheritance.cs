@@ -7,7 +7,7 @@ namespace DotNetKoans.CSharp
         public class Dog
         {
             public string Name { get; set; }
-
+            //this is a constructor
             public Dog(string name)
             {
                 Name = name;
@@ -55,28 +55,32 @@ namespace DotNetKoans.CSharp
 
         [Koan(1)]
         public void SubclassesHaveTheParentAsAnAncestor()
-        {
-            Assert.True(typeof(FillMeIn).IsAssignableFrom(typeof(Chihuahua)));
+        {   
+            //Dog myDog;
+            //myDog = new Chihuahua("Bob");
+            Assert.True(typeof(Dog).IsAssignableFrom(typeof(Chihuahua)));
         }
 
         [Koan(2)]
         public void AllClassesUltimatelyInheritFromAnObject()
         {
-            Assert.True(typeof(FillMeIn).IsAssignableFrom(typeof(Chihuahua)));
+            //object thing;
+            //thing = new Chihuahua();
+            Assert.True(typeof(object).IsAssignableFrom(typeof(Chihuahua)));
         }
 
         [Koan(3)]
         public void SubclassesInheritBehaviorFromParentClass()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Name);
+            Assert.Equal("Chico", chico.Name);
         }
 
         [Koan(4)]
         public void SubclassesAddNewBehavior()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Wag());
+            Assert.Equal("Happy", chico.Wag());
 
             //We can search the public methods of an object 
             //instance like this:
@@ -92,16 +96,20 @@ namespace DotNetKoans.CSharp
         public void SubclassesCanModifyExistingBehavior()
         {
             var chico = new Chihuahua("Chico");
-            Assert.Equal(FILL_ME_IN, chico.Bark());
+            Assert.Equal("yip", chico.Bark());
 
             //Note that even if we cast the object back to a dog
             //we still get the Chihuahua's behavior. It truly
             //"is-a" Chihuahua
+            
+            //  my comment as forexample
+            // obect isActuallyDog = new Chihuahua("Bob");
+            // isActually Dog = "I'm a dog!";
             Dog dog = chico as Dog;
-            Assert.Equal(FILL_ME_IN, dog.Bark());
+            Assert.Equal("yip", dog.Bark());
 
             var fido = new Dog("Fido");
-            Assert.Equal(FILL_ME_IN, fido.Bark());
+            Assert.Equal("WOOF", fido.Bark());
         }
 
         public class ReallyYippyChihuahua : Chihuahua
@@ -123,7 +131,7 @@ namespace DotNetKoans.CSharp
         public void SubclassesCanRedefineBehaviorThatIsNotVirtual()
         {
             ReallyYippyChihuahua suzie = new ReallyYippyChihuahua("Suzie");
-            Assert.Equal(FILL_ME_IN, suzie.Wag());
+            Assert.Equal("WAG WAG WAG!!", suzie.Wag());
         }
 
         [Koan(7)]
@@ -133,7 +141,7 @@ namespace DotNetKoans.CSharp
             //method did what we defined in our class. But what happens
             //when we do this?
             Chihuahua bennie = new ReallyYippyChihuahua("Bennie");
-            Assert.Equal(FILL_ME_IN, bennie.Wag());
+            Assert.Equal("Happy", bennie.Wag());
 
             //That's right. The behavior of the object is dependent solely
             //on who you are pretending to be. Unlike when you override a
@@ -154,7 +162,7 @@ namespace DotNetKoans.CSharp
         public void SubclassesCanInvokeParentBehaviorUsingBase()
         {
             var ralph = new BullDog("Ralph");
-            Assert.Equal(FILL_ME_IN, ralph.Bark());
+            Assert.Equal("WOOF, GROWL", ralph.Bark());
         }
 
         public class GreatDane : Dog
@@ -170,7 +178,7 @@ namespace DotNetKoans.CSharp
         public void YouCanCallBaseEvenFromOtherMethods()
         {
             var george = new GreatDane("George");
-            Assert.Equal(FILL_ME_IN, george.Growl());
+            Assert.Equal("WOOF, GROWL", george.Growl());
         }
     }
 }

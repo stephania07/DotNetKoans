@@ -15,9 +15,13 @@
 				"DotNetKoans.CSharp.AboutInheritance",
 				"DotNetKoans.CSharp.AboutMethods",
 				"DotNetKoans.CSharp.AboutControlStatements",
+                //Sonnet #1: Love Song To Numbers(Fri)
 				"DotNetKoans.CSharp.AboutGenericContainers",
+                //Epic #1: Shapes and Colors(Mon)
+                //Epic #2: SinglyLinkedList (Wed)
 				"DotNetKoans.CSharp.AboutDelegates",
 				"DotNetKoans.CSharp.AboutLambdas"
+                //Epic #3: cal(Fri)
                 };
             }
         }
